@@ -1,0 +1,15 @@
+.page {
+  min-height: 90vh;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-start {
+  justify-content: start;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
