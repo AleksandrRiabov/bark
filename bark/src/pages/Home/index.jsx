@@ -2,6 +2,7 @@ import { Box, Container } from "@mui/material";
 
 import HomePageHeader from "./HomePageHeader";
 import ThumbnailsList from "./ThumbnailsList";
+import HorizontalList from "../../components/HorizontalList";
 
 
 const index = () => {
@@ -14,6 +15,7 @@ const index = () => {
       </Container>
         <Box mt={20}>
         <ThumbnailsList />
+        <HorizontalList />
         </Box>
     </>
   );
