@@ -22,7 +22,7 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const { user, logout, sellerStatus, changeSellerStatus } = useAuth();
+  const { user, logout, changeSellerStatus } = useAuth();
 
   const isUser = user;
 
@@ -132,7 +132,7 @@ function Navbar() {
             ))}
           </Box>
           <Box display="flex">
-            {isUser && sellerStatus ? (
+            {isUser && user.sellerStatus ? (
               <>
                 <NavLink to="/sellers/home">
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
@@ -219,7 +219,7 @@ function Navbar() {
               >
                 <MenuItem onClick={changeSellerStatus}>
                   <Typography textAlign="center">
-                    {sellerStatus ? "Switch to Buyer" : "Switch to Seller"}
+                    {user? "Switch to Buyer" : "Switch to Seller"}
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>

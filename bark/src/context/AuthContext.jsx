@@ -3,8 +3,7 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState("s");
-  const [sellerStatus, setSellerStatus] = useState(true);
+  const [user, setUser] = useState({ name: "Aleks", sellerStatus: true });
 
   const login = (userData) => {
     // Add your authentication logic here (e.g., API calls)
@@ -18,11 +17,11 @@ export const AuthProvider = ({ children }) => {
 
   const changeSellerStatus = () => {
     // Add your logout logic here
-    setSellerStatus((sellerStatus) => !sellerStatus);
+    setUser((user) => ({ ...user, sellerStatus: !user.sellerStatus }));
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, sellerStatus,changeSellerStatus }}>
+    <AuthContext.Provider value={{ user, login, logout, changeSellerStatus }}>
       {children}
     </AuthContext.Provider>
   );
