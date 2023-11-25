@@ -1,15 +1,16 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import CategoryCard from "./CategoryCard";
+import PropTypes from "prop-types";
 
-const HorizontalList = () => {
+const HorizontalList = ({category}) => {
   return (
     <Container>
-      <Box display="flex" justifyContent="space-between">
-        <Typography variant="h5">Category</Typography>
-        <Button>View More</Button>
+      <Box display="flex" justifyContent="space-between" p={1}>
+        <Typography variant="h5">{category.title }</Typography>
+        <Button sx={{ color: "text.secondary" }}>View More</Button>
       </Box>
       <Box sx={{ position: "relative" }}>
-        <Box sx={{ overflowX: "auto" }}>
+        <Box sx={{ overflowX: "auto", padding: 1 }}>
           <Box sx={{ display: "flex", width: "max-content" }}>
             <Box sx={{ marginRight: 2 }}>
               <CategoryCard />
@@ -28,7 +29,7 @@ const HorizontalList = () => {
             </Box>
           </Box>
         </Box>
-        {/* Add a pseudo-element for the color transition on the last element */}
+        {/* Pseudo-element for the color transition on the last element */}
         <Box
           sx={{
             position: "absolute",
@@ -44,6 +45,13 @@ const HorizontalList = () => {
       </Box>
     </Container>
   );
+};
+
+HorizontalList.propTypes = {
+  category: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    // Add other properties as needed
+  }).isRequired,
 };
 
 export default HorizontalList;

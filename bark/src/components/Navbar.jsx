@@ -15,17 +15,21 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { NavLink } from "react-router-dom";
 
 const pages = ["Services", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const isUser = false;
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const { user, logout, sellerStatus, changeSellerStatus } = useAuth();
+
+  const isUser = user;
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -128,27 +132,65 @@ function Navbar() {
             ))}
           </Box>
           <Box display="flex">
-            <NavLink to="/signin">
-              <Button sx={{ my: 2, color: "white", display: "block" }}>
-                Login
-              </Button>
-            </NavLink>
-            <NavLink to="/signin">
-              <Button
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  borderRadius: "20px",
-                  backgroundColor: "#4CAF50",
-                  "&:hover": {
-                    backgroundColor: "#45a049",
-                  },
-                }}
-              >
-                Join as a Professional
-              </Button>
-            </NavLink>
+            {isUser && sellerStatus ? (
+              <>
+                <NavLink to="/sellers/home">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Dashboard
+                  </Button>
+                </NavLink>
+                <NavLink to="/sellers/leads">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Leads
+                  </Button>
+                </NavLink>
+                <NavLink to="/sellers/my-responses">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    My Responses
+                  </Button>
+                </NavLink>
+                <NavLink to="/sellers/settings">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Settings
+                  </Button>
+                </NavLink>
+                <NavLink to="/help">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Help
+                  </Button>
+                </NavLink>
+              </>
+            ) : isUser ? (
+              <NavLink to="/my-requests">
+                <Button sx={{ my: 2, color: "white", display: "block" }}>
+                  My Requests
+                </Button>
+              </NavLink>
+            ) : (
+              <>
+                <NavLink to="/signin">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Login
+                  </Button>
+                </NavLink>
+                <NavLink to="/signin">
+                  <Button
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      borderRadius: "20px",
+                      backgroundColor: "#4CAF50",
+                      "&:hover": {
+                        backgroundColor: "#45a049",
+                      },
+                    }}
+                  >
+                    Join as a Professional
+                  </Button>
+                </NavLink>
+              </>
+            )}
           </Box>
 
           {/* If user logged in display avatar */}
@@ -175,11 +217,19 @@ function Navbar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))}
+                <MenuItem onClick={changeSellerStatus}>
+                  <Typography textAlign="center">
+                    {sellerStatus ? "Switch to Buyer" : "Switch to Seller"}
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">
+                    View Public Profile
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={logout}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
               </Menu>
             </Box>
           )}
@@ -188,4 +238,5 @@ function Navbar() {
     </AppBar>
   );
 }
+
 export default Navbar;
