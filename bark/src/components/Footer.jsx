@@ -38,7 +38,7 @@ const Footer = () => {
               <Link href="/en/gb/sellers/create/">Join as a Professional</Link>
             </div>
             <div>
-              <Link href="https://help.bark.com/">Help centre</Link>
+              <Link href="/help">Help centre</Link>
             </div>
             <div>
               <Link href="/en/gb/get-the-app/sellers/">Mobile App</Link>
@@ -49,12 +49,10 @@ const Footer = () => {
               About
             </Typography>
             <div>
-              <Link href="https://careers.bark.com/#our-journey">
-                About Bark
-              </Link>
+              <Link href="/about">About Bark</Link>
             </div>
             <div>
-              <Link href="https://careers.bark.com">Careers</Link>
+              <Link href="/careers">Careers</Link>
             </div>
             <div>
               <Link href="/en/gb/affiliates/">Affiliates</Link>
@@ -68,8 +66,8 @@ const Footer = () => {
           <Grid item xs={12} sm={6} md={3}>
             <div>
               <Typography variant="h6">Contact Us</Typography>
-              <Link href="mailto:team@bark.com">team@bark.com</Link>
-              <Link href="tel:+442036970237">020 3697 0237</Link>
+              <Link href="bark@gmail.com">team@brrr.com</Link>
+              <Link href="tel:+44999999 "> 034 4433 3563</Link>
               <Typography variant="body2" color="textSecondary">
                 (open 24 hours a day, 7 days a week)
               </Typography>

@@ -12,9 +12,22 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-const pages = ["Services", "Pricing", "Blog"];
+const pages = [
+  { page: "Services", url: "/services" },
+  { page: "Pricing", url: "/pricing" },
+  { page: "Blog", url: "/blog" },
+];
+
+const sellerPages = [
+  { page: "Dashboard", url: "/sellers/home" },
+  { page: "Leads", url: "/sellers/leads" },
+  { page: "My Responses", url: "/sellers/my-responses" },
+  { page: "Settings", url: "/sellers/settings" },
+];
+
+const buyerPages = [{ page: "My Requests", url: "/my-requests" }];
 
 import { useAuth } from "../context/AuthContext";
 
@@ -25,6 +38,11 @@ function Navbar() {
   const { user, logout, changeSellerStatus } = useAuth();
 
   const isUser = user;
+
+  const menuPages = [
+    ...pages,
+    ...(user?.sellerStatus ? sellerPages : user ? buyerPages : []),
+  ];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -94,9 +112,11 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {menuPages.map(({ page, url }) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link to={url}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,39 +141,28 @@ function Navbar() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+            {pages.map(({ page, url }) => (
+              <Link key={page} to={url}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page}
+                </Button>
+              </Link>
             ))}
           </Box>
-          <Box display="flex">
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {isUser && user.sellerStatus ? (
               <>
-                <NavLink to="/sellers/home">
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    Dashboard
-                  </Button>
-                </NavLink>
-                <NavLink to="/sellers/leads">
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    Leads
-                  </Button>
-                </NavLink>
-                <NavLink to="/sellers/my-responses">
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    My Responses
-                  </Button>
-                </NavLink>
-                <NavLink to="/sellers/settings">
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    Settings
-                  </Button>
-                </NavLink>
+                {sellerPages.map(({ page, url }) => (
+                  <NavLink to={url} key={page}>
+                    <Button sx={{ my: 2, color: "white", display: "block" }}>
+                      {page}
+                    </Button>
+                  </NavLink>
+                ))}
+
                 <NavLink to="/help">
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
                     Help
@@ -218,8 +227,8 @@ function Navbar() {
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={changeSellerStatus}>
-                  <Typography textAlign="center">
-                    {user? "Switch to Buyer" : "Switch to Seller"}
+                  <Typography textAlign="center" onClick={handleCloseUserMenu}>
+                    {user.sellerStatus ? "Switch to Buyer" : "Switch to Seller"}
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
