@@ -19,6 +19,7 @@ import LeadsPage from "./pages/Users/Sellers/Leads";
 import MyResponsesPage from "./pages/Users/Sellers/MyResponses";
 import SellerSettings from "./pages/Users/Sellers/SellerSettings";
 import { useAuth } from "./context/AuthContext";
+import MyRequestsPage from "./pages/Users/Buyers/MyRequests";
 
 const App = () => {
   const { user } = useAuth();
@@ -47,9 +48,9 @@ const App = () => {
           // Buyer Routes
           <>
             <Route
-              path="/sellers/settings"
+              path="/my-requests"
               index
-              element={<SellerSettings />}
+              element={<MyRequestsPage />}
             />
           </>
         ) : (
