@@ -8,18 +8,20 @@ import {
   Outlet,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Home } from "./pages";
-
 import Footer from "./components/Footer/";
 import CssBaseline from "@mui/material/CssBaseline";
-import SignIn from "./pages/Authentication/SingIn";
-import SignUp from "./pages/Authentication/Signup";
-import SellerProfilePage from "./pages/Users/Sellers/SellerProfilePage";
-import LeadsPage from "./pages/Users/Sellers/Leads";
-import MyResponsesPage from "./pages/Users/Sellers/MyResponses";
-import SellerSettings from "./pages/Users/Sellers/SellerSettings";
+import {
+  Home,
+  MyResponsesPage,
+  MyRequestsPage,
+  SellerSettings,
+  LeadsPage,
+  SellerProfilePage,
+  SignUp,
+  SignIn,
+} from "./pages";
+
 import { useAuth } from "./context/AuthContext";
-import MyRequestsPage from "./pages/Users/Buyers/MyRequests";
 
 const App = () => {
   const { user } = useAuth();
@@ -47,11 +49,7 @@ const App = () => {
         ) : user ? (
           // Buyer Routes
           <>
-            <Route
-              path="/my-requests"
-              index
-              element={<MyRequestsPage />}
-            />
+            <Route path="/my-requests" index element={<MyRequestsPage />} />
           </>
         ) : (
           <>
