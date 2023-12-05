@@ -22,6 +22,7 @@ import {
 } from "./pages";
 
 import { useAuth } from "./context/AuthContext";
+import { Box } from "@mui/material";
 
 const App = () => {
   const { user } = useAuth();
@@ -67,7 +68,7 @@ const App = () => {
 
 const Root = () => {
   return (
-    <>
+    <Box sx={{background: '#98d0bd'}}>
       <CssBaseline />
       <div>
         <Navbar />
@@ -78,7 +79,7 @@ const Root = () => {
       <div>
         <Footer />
       </div>
-    </>
+    </Box>
   );
 };
 

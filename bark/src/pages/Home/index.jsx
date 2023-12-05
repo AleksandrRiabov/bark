@@ -1,11 +1,10 @@
 import { Box, Container } from "@mui/material";
-
 import HomePageHeader from "./HomePageHeader";
 import ThumbnailsList from "./ThumbnailsList";
 import HorizontalList from "../../components/HorizontalList";
 import BrandsLine from "../../components/BrandsLine";
 
-const index = () => {
+const Index = () => {
   return (
     <>
       <Container>
@@ -13,7 +12,13 @@ const index = () => {
           <HomePageHeader />
         </Box>
       </Container>
-      <Box sx={{ mt: { xs: 2, sm: 10, md: 18, lg: 20 }, mb: 10 }}>
+      <Box
+        sx={{
+          position: "relative",
+          mt: { xs: 2, sm: 10, md: 6 },
+          mb: 10,
+        }}
+      >
         <ThumbnailsList />
       </Box>
       <BrandsLine />
@@ -27,4 +32,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
