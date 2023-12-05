@@ -38,8 +38,15 @@ const ThumbnailsList = () => {
   ];
 
   return (
-    <Box sx={{ overflowX: "auto", whiteSpace: "nowrap" }}>
-      <Box sx={{ display: "flex" }}>
+    <Box
+      sx={{
+        overflowX: "auto",
+        whiteSpace: "nowrap",
+        padding: "80px 20px",
+        background: "#e3ffe9",
+      }}
+    >
+      <Box sx={{ display: "flex", gap: "1rem" }}>
         {services.map((service, index) => (
           <Button
             key={index}
@@ -71,9 +78,9 @@ const ThumbnailsList = () => {
                 position: "absolute",
                 top: "6px",
                 left: "15px",
-                color: "#fff",
+                color: "text.dark",
                 fontWeight: "bold",
-                background: "#4CAF50",
+                background: "#ff9941",
                 padding: "8px",
                 borderRadius: "4px",
               }}
