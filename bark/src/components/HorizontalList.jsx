@@ -38,7 +38,7 @@ const HorizontalList = ({category}) => {
             width: "20px", // Adjust the width of the color transition
             height: "100%",
             background:
-              "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
+              "linear-gradient(to right, rgba(255, 255, 255, 0), #98d0bd)",
             pointerEvents: "none",
           }}
         />

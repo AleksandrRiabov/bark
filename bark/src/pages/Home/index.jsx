@@ -3,6 +3,7 @@ import HomePageHeader from "./HomePageHeader";
 import ThumbnailsList from "./ThumbnailsList";
 import HorizontalList from "../../components/HorizontalList";
 import BrandsLine from "../../components/BrandsLine";
+import StatsLine from "../../components/StatsLine";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
           mb: 10,
         }}
       >
+        <StatsLine />
         <ThumbnailsList />
       </Box>
       <BrandsLine />

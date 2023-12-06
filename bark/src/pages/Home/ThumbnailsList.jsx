@@ -9,26 +9,24 @@ import {
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
 import developer from "../../assets/workers/developer.jpg";
 import plumber from "../../assets/workers/plumber1.jpg";
 import electrician from "../../assets/workers/electrician.jpg";
 import cleaner from "../../assets/workers/cleaner.jpg";
-import Slider from "react-slick";
 
 const ThumbnailsList = () => {
   const history = useLocation();
   const sliderRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isMedium = useMediaQuery(theme.breakpoints.between("sm", "md"));
   const isLarge = useMediaQuery(theme.breakpoints.between("md", "lg"));
 
-  // Adjust slidesToShow based on screen size
   const slidesToShow = isMobile ? 1 : isMedium ? 2 : isLarge ? 3 : 4;
 
-  // Slider settings
   const settings = {
     speed: 3000,
     slidesToShow: slidesToShow,
@@ -41,19 +39,16 @@ const ThumbnailsList = () => {
   useEffect(() => {
     let sliderInterval;
 
-    if (!isHovered && sliderRef.current) {
+    if (!hoveredIndex && sliderRef.current) {
       sliderInterval = setInterval(() => {
-        // Auto-scroll the slider to the next position
         sliderRef.current.scrollLeft += 1;
       }, 20);
     }
 
-    // Clear the interval when the component unmounts or when hovered
     return () => clearInterval(sliderInterval);
-  }, [isHovered]);
+  }, [hoveredIndex]);
 
   const handleThumbnailClick = (service) => {
-    // Navigate to the service page or perform any other action
     history.push(`/service/${service}`);
   };
 
@@ -78,20 +73,17 @@ const ThumbnailsList = () => {
       name: "Plumber",
       imageUrl: plumber,
     },
-    // Add more services as needed
   ];
 
   return (
     <Box
       sx={{
-        overflowX: "hidden", // Hide the horizontal scrollbar
+        overflowX: "hidden",
         whiteSpace: "nowrap",
-        padding: "60px 20px",
-        background: "#e3ffe9",
+        padding: "20px 0px",
+        background: "#f4f4f4",
         position: "relative",
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <Box>
         <Slider {...settings} ref={sliderRef}>
@@ -101,14 +93,21 @@ const ThumbnailsList = () => {
               variant="text"
               fullWidth
               onClick={() => handleThumbnailClick(service.name)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
               sx={{
                 flex: "0 0 auto",
                 marginRight: "8px",
                 position: "relative",
-                paddingLeft: "16px",
                 borderRadius: "5px",
-                maxWidth: "450px", // Set the maximum width
+                maxWidth: "400px",
                 padding: 0,
+                transition: "filter 0.3s ease, box-shadow 0.3s ease",
+                filter:
+                  hoveredIndex === index
+                    ? "brightness(70%)"
+                    : "brightness(100%)",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               }}
             >
               <img
@@ -117,15 +116,16 @@ const ThumbnailsList = () => {
                 style={{
                   width: "100%",
                   height: "auto",
-                  borderRadius: "13px",
-                  padding: "0 8px",
+                  borderRadius: "12px",
+                  padding: " 8px",
+                  userSelect: "none",
                 }}
               />
               <Typography
                 variant="subtitle2"
                 sx={{
                   position: "absolute",
-                  top: "6px",
+                  top: "14px",
                   left: "15px",
                   color: "text.dark",
                   fontWeight: "bold",
