@@ -1,9 +1,10 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import HomePageHeader from "./HomePageHeader";
 import ThumbnailsList from "./ThumbnailsList";
 import HorizontalList from "../../components/HorizontalList";
 import BrandsLine from "../../components/BrandsLine";
 import StatsLine from "../../components/StatsLine";
+import GridLayOut from "./GridLayOut";
 
 const Index = () => {
   return (
@@ -24,6 +25,18 @@ const Index = () => {
         <ThumbnailsList />
       </Box>
       <BrandsLine />
+      <Box sx={{ background: "#23577c", paddingBottom: "40px" }}>
+        <Container>
+          <Typography
+            variant="h4"
+            color="#fff"
+            sx={{ padding: "40px 0 0 10px" }}
+          >
+            Categories
+          </Typography>
+          <GridLayOut />
+        </Container>
+      </Box>
       <Box mt={10}>
         <HorizontalList category={{ title: "Home & Gardening" }} />
       </Box>

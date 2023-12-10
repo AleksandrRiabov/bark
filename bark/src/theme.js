@@ -3,10 +3,11 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#23577c", // Replace with your desired primary color
+      main: "#23577c", 
     },
     text: {
-      dark: "#333", // Optionally set a secondary text color
+      dark: "#333",
+      main: "#23577c",
     },
   },
 });

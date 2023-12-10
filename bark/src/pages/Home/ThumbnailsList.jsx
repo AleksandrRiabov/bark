@@ -7,13 +7,13 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import developer from "../../assets/workers/developer.jpg";
-import plumber from "../../assets/workers/plumber1.jpg";
-import electrician from "../../assets/workers/electrician.jpg";
-import cleaner from "../../assets/workers/cleaner.jpg";
+import developer from "../../assets/workers/developer.svg";
+import plumber from "../../assets/workers/plumber.svg";
+import electrician from "../../assets/workers/electrician.svg";
+import cleaner from "../../assets/workers/cleaning.svg";
 
 const ThumbnailsList = () => {
   const history = useLocation();
@@ -88,55 +88,63 @@ const ThumbnailsList = () => {
       <Box>
         <Slider {...settings} ref={sliderRef}>
           {services.map((service, index) => (
-            <Button
-              key={index}
-              variant="text"
-              fullWidth
-              onClick={() => handleThumbnailClick(service.name)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              sx={{
-                flex: "0 0 auto",
-                marginRight: "8px",
-                position: "relative",
-                borderRadius: "5px",
-                maxWidth: "400px",
-                padding: 0,
-                transition: "filter 0.3s ease, box-shadow 0.3s ease",
-                filter:
-                  hoveredIndex === index
-                    ? "brightness(70%)"
-                    : "brightness(100%)",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <img
-                src={service.imageUrl}
-                alt={service.name}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "12px",
-                  padding: " 8px",
-                  userSelect: "none",
-                }}
-              />
-              <Typography
-                variant="subtitle2"
+            <Link key={index}>
+              <Box
+                variant="text"
+                fullWidth
+                onClick={() => handleThumbnailClick(service.name)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
                 sx={{
-                  position: "absolute",
-                  top: "14px",
-                  left: "15px",
-                  color: "text.dark",
-                  fontWeight: "bold",
-                  background: "#ff9941",
-                  padding: "8px",
-                  borderRadius: "4px",
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  marginRight: "8px",
+                  maxWidth: "400px",
+                  padding: 0,
+                  transition: "filter 0.3s ease, box-shadow 0.3s ease",
+                  filter:
+                    hoveredIndex === index
+                      ? "brightness(70%)"
+                      : "brightness(100%)",
                 }}
               >
-                {`${service.name}:`}
-              </Typography>
-            </Button>
+                <Box display="flex" justifyContent="center">
+                  <Box
+                    sx={{
+                      width: "50%",
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                      background: "#97cfbc",
+                    }}
+                  >
+                    <Box p={4}>
+                      <img
+                        src={service.imageUrl}
+                        alt={service.name}
+                        style={{
+                          width: "100%",
+                          height: "auto",
+
+                          userSelect: "none",
+                        }}
+                      />
+                    </Box>
+                  </Box>
+                </Box>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "text.main",
+                    fontWeight: "bold",
+                    padding: "8px",
+                  }}
+                >
+                  {`${service.name}:`}
+                </Typography>
+              </Box>
+            </Link>
           ))}
         </Slider>
       </Box>
