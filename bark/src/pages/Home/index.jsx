@@ -5,7 +5,7 @@ import HorizontalList from "../../components/HorizontalList";
 import BrandsLine from "../../components/BrandsLine";
 import StatsLine from "../../components/StatsLine";
 import GridLayOut from "./GridLayOut";
-import StepsMap from "./StepsMap";
+import HowItWorks from "./HowItWorks/HowItWorks";
 
 const Index = () => {
   return (
@@ -22,9 +22,10 @@ const Index = () => {
         }}
       >
         <StatsLine />
+        <HowItWorks />
         <ThumbnailsList />
       </Box>
-      <StepsMap />
+
       <BrandsLine />
       <Box sx={{ background: "#23577c", paddingBottom: "40px" }}>
         <Container>
