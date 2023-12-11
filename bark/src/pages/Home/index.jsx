@@ -5,6 +5,7 @@ import HorizontalList from "../../components/HorizontalList";
 import BrandsLine from "../../components/BrandsLine";
 import StatsLine from "../../components/StatsLine";
 import GridLayOut from "./GridLayOut";
+import StepsMap from "./StepsMap";
 
 const Index = () => {
   return (
@@ -18,12 +19,12 @@ const Index = () => {
         sx={{
           position: "relative",
           mt: { xs: 2, sm: 10, md: 6 },
-          mb: 10,
         }}
       >
         <StatsLine />
         <ThumbnailsList />
       </Box>
+      <StepsMap />
       <BrandsLine />
       <Box sx={{ background: "#23577c", paddingBottom: "40px" }}>
         <Container>
@@ -37,6 +38,7 @@ const Index = () => {
           <GridLayOut />
         </Container>
       </Box>
+
       <Box mt={10}>
         <HorizontalList category={{ title: "Home & Gardening" }} />
       </Box>
