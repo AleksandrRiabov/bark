@@ -7,7 +7,10 @@ const TrustedProffesionals = () => {
     <Box sx={{ padding: "4rem 0" }}>
       <Container>
         <Typography variant="h4">Trusted Professionals</Typography>
-        <Box display="flex" sx={{ padding: "2rem 0" }}>
+        <Box
+          display="flex"
+          sx={{ padding: "2rem 0", flexDirection: { xs: "column", sm: "row" } }}
+        >
           {/* Left side */}
           <Box display="flex" justifyContent="center" alignItems="center">
             <img src={trustedProff} alt="" width="80%" />
