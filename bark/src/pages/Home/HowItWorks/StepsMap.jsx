@@ -12,7 +12,8 @@ const StepsMap = () => {
       display="flex"
       sx={{
         flexDirection: { xs: "column", md: "row" },
-        height: { md: "300px" },
+        height: { md: "320px" },
+        alignItems: { xs: "center", sm: "start" },
       }}
     >
       {/* Firets  step */}
@@ -57,7 +58,7 @@ const StepsMap = () => {
               height: "160%",
               backgroundImage: `url(${line1})`,
               backgroundSize: "cover",
-              top: "-90px",
+              top: "-60px",
               left: "90px",
               display: { xs: "none", md: "block" },
             }}
@@ -71,7 +72,8 @@ const StepsMap = () => {
           minWidth: "250px",
           maxWidth: "300px",
           position: "relative",
-          alignSelf: "flex-end",
+          alignSelf: { sm: "center", md: "flex-end" },
+          pt: { xs: "30px", sm: 0 },
         }}
       >
         <Box
@@ -106,10 +108,10 @@ const StepsMap = () => {
               position: "absolute",
               content: "''",
               width: "250px",
-              height: "150%",
+              height: "130%",
               backgroundImage: `url(${line2})`,
               backgroundSize: "cover",
-              top: "-180px",
+              top: "-170px",
               left: "70px",
               display: { xs: "none", md: "block" },
             }}

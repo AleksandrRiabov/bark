@@ -44,7 +44,7 @@ const HomePageHeader = () => {
         sx={{
           flex: 1,
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: { xs: "center", sm: "flex-end" },
           alignItems: "center",
         }}
       >
