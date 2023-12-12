@@ -7,7 +7,13 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 
 const Footer = () => {
   return (
-    <Box sx={{ borderTop: "solid 1px #dedede", padding: "20px" }}>
+    <Box
+      sx={{
+        borderTop: "solid 1px #dedede",
+        padding: "20px",
+        background: "#f4f4f4",
+      }}
+    >
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>

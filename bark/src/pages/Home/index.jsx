@@ -6,6 +6,7 @@ import BrandsLine from "../../components/BrandsLine";
 import StatsLine from "../../components/StatsLine";
 import GridLayOut from "./GridLayOut";
 import HowItWorks from "./HowItWorks/HowItWorks";
+import TrustedProffesionals from "./TrustedProffesionals";
 
 const Index = () => {
   return (
@@ -26,8 +27,10 @@ const Index = () => {
         <ThumbnailsList />
       </Box>
 
+      <TrustedProffesionals />
       <BrandsLine />
-      <Box sx={{ background: "#23577c", paddingBottom: "40px" }}>
+
+      {/* <Box sx={{ background: "#23577c", paddingBottom: "40px" }}>
         <Container>
           <Typography
             variant="h4"
@@ -45,7 +48,7 @@ const Index = () => {
       </Box>
       <Box mt={10} mb={16}>
         <HorizontalList category={{ title: "Business Services" }} />
-      </Box>
+      </Box> */}
     </>
   );
 };
