@@ -19,30 +19,41 @@ const StepsMap = () => {
       {/* Firets  step */}
       <Box
         sx={{
-          width: "30%",
+          width: { xs: "100%", md: "30%" },
           minWidth: "250px",
-          maxWidth: "300px",
+          maxWidth: { md: "300px" },
           position: "relative",
+          display: { xs: "flex", md: "block" },
+          gap: "1rem",
         }}
       >
+        <Box>
+          <Box
+            sx={{
+              borderRadius: "50%",
+              width: "90px",
+              height: "90px",
+              background: "#e3ffe8",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h3" color="text.main">
+              1
+            </Typography>
+          </Box>
+        </Box>
         <Box
           sx={{
-            borderRadius: "50%",
-            width: "90px",
-            height: "90px",
-            background: "#e3ffe8",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mb: 4,
+            position: "relative",
           }}
         >
-          <Typography variant="h3" color="text.main">
-            1
-          </Typography>
-        </Box>
-        <Box sx={{ position: "relative" }}>
-          <Typography variant="h5" color="#fff">
+          <Typography
+            variant="h5"
+            sx={{ fontSize: { xs: "1.4rem", sm: "1.5rem" } }}
+            color="#fff"
+          >
             Create The Task <CreateIcon />
           </Typography>
           <Typography variant="body" color="text.gold">
@@ -68,34 +79,41 @@ const StepsMap = () => {
       {/* Second Step */}
       <Box
         sx={{
-          width: "30%",
+          width: { xs: "100%", md: "30%" },
           minWidth: "250px",
-          maxWidth: "300px",
-          position: "relative",
+          maxWidth: { md: "300px" },
           alignSelf: { sm: "center", md: "flex-end" },
-          pt: { xs: "30px", sm: 0 },
+          display: { xs: "flex", md: "block" },
+          pt: { xs: "30px", md: 0 },
+          gap: "1rem",
         }}
       >
-        <Box
-          sx={{
-            borderRadius: "50%",
-            width: "90px",
-            height: "90px",
-            background: "#e3ffe8",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mb: 4,
-            zIndex: 200,
-            position: "relative",
-          }}
-        >
-          <Typography variant="h3" color="text.main">
-            2
-          </Typography>
+        <Box>
+          <Box
+            sx={{
+              borderRadius: "50%",
+              width: "90px",
+              height: "90px",
+              background: "#e3ffe8",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mb: 4,
+              zIndex: 200,
+              position: "relative",
+            }}
+          >
+            <Typography variant="h3" color="text.main">
+              2
+            </Typography>
+          </Box>
         </Box>
         <Box sx={{ position: "relative" }}>
-          <Typography variant="h5" color="#fff">
+          <Typography
+            variant="h5"
+            sx={{ fontSize: { xs: "1.4rem", sm: "1.5rem" } }}
+            color="#fff"
+          >
             Receive Responses <ReplyAllIcon />
           </Typography>
           <Typography variant="body" color="text.gold">
@@ -122,32 +140,39 @@ const StepsMap = () => {
       {/* Third step */}
       <Box
         sx={{
-          width: "30%",
+          width: { xs: "100%", md: "30%" },
           minWidth: "250px",
-          maxWidth: "300px",
-          pt: "30px",
+          maxWidth: { md: "300px" },
+          display: { xs: "flex", md: "block" },
+          gap: "1rem",
         }}
       >
-        <Box
-          sx={{
-            borderRadius: "50%",
-            width: "90px",
-            height: "90px",
-            background: "#e3ffe8",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mb: 4,
-            zIndex: 200,
-            position: "relative",
-          }}
-        >
-          <Typography variant="h3" color="text.main">
-            3
-          </Typography>
+        <Box>
+          <Box
+            sx={{
+              borderRadius: "50%",
+              width: "90px",
+              height: "90px",
+              background: "#e3ffe8",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mb: 4,
+              zIndex: 200,
+              position: "relative",
+            }}
+          >
+            <Typography variant="h3" color="text.main">
+              3
+            </Typography>
+          </Box>
         </Box>
         <Box sx={{ position: "relative" }}>
-          <Typography variant="h5" color="#fff">
+          <Typography
+            variant="h5"
+            sx={{ fontSize: { xs: "1.4rem", sm: "1.5rem" } }}
+            color="#fff"
+          >
             Hire the Best Offered <HandshakeIcon />
           </Typography>
           <Typography variant="body" color="text.gold">
