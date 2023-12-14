@@ -1,12 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  Box,
-  Button,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
@@ -80,7 +74,7 @@ const ThumbnailsList = () => {
       sx={{
         overflowX: "hidden",
         whiteSpace: "nowrap",
-        padding: "20px 0px",
+        padding: "50px 0px",
         background: "#f4f4f4",
         position: "relative",
       }}
@@ -100,7 +94,6 @@ const ThumbnailsList = () => {
                   justifyContent: "center",
                   flexDirection: "column",
                   alignItems: "center",
-                  marginRight: "8px",
                   maxWidth: "400px",
                   padding: 0,
                   transition: "filter 0.3s ease, box-shadow 0.3s ease",
@@ -126,7 +119,6 @@ const ThumbnailsList = () => {
                         style={{
                           width: "100%",
                           height: "auto",
-
                           userSelect: "none",
                         }}
                       />
@@ -141,7 +133,7 @@ const ThumbnailsList = () => {
                     padding: "8px",
                   }}
                 >
-                  {`${service.name}:`}
+                  {`${service.name}`}
                 </Typography>
               </Box>
             </Link>
