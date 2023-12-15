@@ -2,11 +2,11 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import CategoryCard from "./CategoryCard";
 import PropTypes from "prop-types";
 
-const HorizontalList = ({category}) => {
+const HorizontalList = ({ category }) => {
   return (
     <Container>
       <Box display="flex" justifyContent="space-between" p={1}>
-        <Typography variant="h5">{category.title }</Typography>
+        <Typography variant="h5">{category.title}</Typography>
         <Button sx={{ color: "text.secondary" }}>View More</Button>
       </Box>
       <Box sx={{ position: "relative" }}>

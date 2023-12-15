@@ -68,7 +68,7 @@ const App = () => {
 
 const Root = () => {
   return (
-    <Box sx={{background: '#98d0bd'}}>
+    <Box>
       <CssBaseline />
       <div>
         <Navbar />
