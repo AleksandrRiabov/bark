@@ -9,7 +9,14 @@ import Testimonials from "./Testimonials/Testimonials";
 
 const Index = () => {
   return (
-    <Box sx={{ background: "#98d0bd" }}>
+    <Box
+      sx={{
+        background: {
+          xs: "#98d0bd",
+          md: "linear-gradient(89deg, rgb(200 237 217) 0%, #98d0bd 49%)",
+        },
+      }}
+    >
       <Container>
         <Box display={"flex"} flexDirection="column" justifyContent={"center"}>
           <HomePageHeader />

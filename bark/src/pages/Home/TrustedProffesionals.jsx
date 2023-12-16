@@ -4,7 +4,7 @@ import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 
 const TrustedProffesionals = () => {
   return (
-    <Box sx={{ padding: "4rem 0" }}>
+    <Box sx={{ padding: "4rem 0", background: 'linear-gradient(to right, #97cfbc, #e1ffe9)' }}>
       <Container>
         <Typography variant="h4">Trusted Professionals</Typography>
         <Box
