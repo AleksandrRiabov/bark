@@ -15,9 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link, NavLink } from "react-router-dom";
 
 const pages = [
-  { page: "Services", url: "/services" },
-  { page: "Pricing", url: "/pricing" },
-  { page: "Blog", url: "/blog" },
+  // { page: "Services", url: "/services" },
 ];
 
 const sellerPages = [
