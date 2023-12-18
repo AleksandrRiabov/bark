@@ -71,7 +71,7 @@ const MyResponsesPage = ({
 
   return (
     <Container>
-      <Box mt={4}>
+      <Box mt={10}>
         <Paper elevation={3} sx={{ padding: 3 }}>
           <Typography variant="h4" gutterBottom>
             Pending & Hired Jobs

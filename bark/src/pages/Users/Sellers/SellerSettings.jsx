@@ -13,7 +13,7 @@ import {
 const SellerSettings = () => {
   return (
     <Container>
-      <Box mt={4}>
+      <Box mt={10}>
         <Paper elevation={3} sx={{ padding: 3, marginBottom: 5 }}>
           <Typography variant="h4" gutterBottom>
             Settings
