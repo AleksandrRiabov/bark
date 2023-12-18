@@ -13,14 +13,14 @@ import { Link } from "react-router-dom";
 
 const SellerProfilePage = () => {
   return (
-    <Container sx={{ mt: 5 }}>
+    <Container sx={{ mt: 5, mb: 5 }}>
       <Box pb={3}>
         <Typography variant="h6">Hello, Jhon!</Typography>
         <Typography variant="subtitle1" color="text.secondary">
           Monday, 18 Dec 3:11am
         </Typography>
       </Box>
-      <Box display="flex" gap={3}>
+      <Box sx={{ display: { md: "flex" }, gap: 3 }}>
         {/* Left column */}
         <Box
           flex={1}
@@ -29,7 +29,7 @@ const SellerProfilePage = () => {
           justifyContent="space-between"
         >
           <Paper sx={{ p: 2 }}>
-            <Box pb={2}>
+            <Box pb={2} display='flex' alignItems='center' flexDirection='column' gap={2}>
               <Avatar
                 alt="User Avatar"
                 src="https://1.img-dpreview.com/files/p/TS1120x1120~forums/59237974/6e191c3c2af142abac5ef4a5371b72a4"
