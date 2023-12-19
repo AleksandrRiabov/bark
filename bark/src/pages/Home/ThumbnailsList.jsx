@@ -85,7 +85,6 @@ const ThumbnailsList = () => {
             <Link key={index}>
               <Box
                 variant="text"
-                fullWidth
                 onClick={() => handleThumbnailClick(service.name)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}

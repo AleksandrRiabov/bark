@@ -79,7 +79,7 @@ Lead.propTypes = {
   service: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   jobDescription: PropTypes.string.isRequired,
-  responses: PropTypes.bool, // Assuming responses is a boolean
+  responses: PropTypes.number,
   price: PropTypes.number.isRequired,
 };
 

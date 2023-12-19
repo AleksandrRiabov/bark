@@ -1,9 +1,8 @@
+import PropTypes from "prop-types";
 import { Box, Button, Typography } from "@mui/material";
-
 import LocationOn from "@mui/icons-material/LocationOn";
 import Create from "@mui/icons-material/Create";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-
 import FilterListIcon from "@mui/icons-material/FilterList";
 import Lead from "../Lead";
 import FlexBetween from "../../../../../components/FlexBetween";
@@ -58,7 +57,7 @@ const LeftSide = ({ leads }) => {
         {leads.map((lead) => (
           <Box
             key={lead.id}
-            sx={lead.selected ? { borderLeft: "8px solid orange" } : ""}
+            sx={lead.selected ? { borderLeft: "8px solid orange" } : {}}
           >
             {" "}
             <Lead {...lead} />
@@ -67,6 +66,15 @@ const LeftSide = ({ leads }) => {
       </Box>
     </Box>
   );
+};
+
+LeftSide.propTypes = {
+  leads: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      selected: PropTypes.bool,
+    })
+  ).isRequired,
 };
 
 export default LeftSide;
