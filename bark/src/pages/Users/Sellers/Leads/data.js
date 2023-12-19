@@ -8,7 +8,9 @@ export const leads = [
     jobDescription: "Build a responsive website for an e-commerce store.",
     selected: true,
     responses: 2,
-    price: 33
+    price: 33,
+    phone: "077*******",
+    email: "J**********@gmail.com",
   },
   {
     id: 2,
@@ -17,8 +19,10 @@ export const leads = [
     location: "Los Angeles, USA",
     budget: "$1,500",
     jobDescription: "Create a modern and eye-catching logo for a startup.",
-    responses: 0,
-    price: 33
+    responses: 4,
+    price: 33,
+    phone: "079*******",
+    email: "J**********@gmail.com",
   },
   {
     id: 3,
@@ -28,8 +32,10 @@ export const leads = [
     budget: "$800",
     jobDescription:
       "Run a targeted social media campaign for a small business.",
-    responses: 0,
-    price: 33
+    responses: 1,
+    price: 33,
+    phone: "077*******",
+    email: "A**********@gmail.com",
   },
   {
     id: 4,
@@ -40,6 +46,8 @@ export const leads = [
     jobDescription:
       "Develop a cross-platform mobile app for a fitness tracking service.",
     responses: 0,
-    price: 33
+    price: 33,
+    phone: "097*******",
+    email: "B**********@gmail.com",
   },
 ];

@@ -11,6 +11,7 @@ const Lead = ({
   jobDescription,
   responses,
   price,
+  selected,
 }) => {
   return (
     <Paper
@@ -20,6 +21,7 @@ const Lead = ({
         mb: "2px",
         cursor: "pointer",
         borderRadius: 0,
+        background: `${selected && "#f9f9fa"}`,
       }}
     >
       <FlexBetween>
@@ -81,6 +83,7 @@ Lead.propTypes = {
   jobDescription: PropTypes.string.isRequired,
   responses: PropTypes.number,
   price: PropTypes.number.isRequired,
+  selected: PropTypes.bool,
 };
 
 export default Lead;

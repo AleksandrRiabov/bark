@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { Box, Tooltip, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
@@ -16,6 +15,7 @@ const ResponseCountBox = ({ count }) => {
         gap: 2,
         border: (theme) => `1px solid ${theme.palette.primary.green}`,
         borderRadius: 1,
+        maxWidth: "470px",
       }}
     >
       <Box display="flex" gap={1}>

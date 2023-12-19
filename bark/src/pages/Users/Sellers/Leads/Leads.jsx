@@ -4,8 +4,13 @@ import { leads } from "./data";
 
 import LeftSide from "./LeftSide/LeftSide";
 import RightSide from "./RightSide/RightSide";
+import { useState } from "react";
 
 const LeadsPage = () => {
+  const [selectedLead, setSelectedLead] = useState(leads[0]);
+
+  selectedLead.id
+
   return (
     <Box display="flex">
       {/* Left side */}
@@ -17,11 +22,11 @@ const LeadsPage = () => {
           overflow: "scroll",
         }}
       >
-        <LeftSide leads={leads} />
+        <LeftSide leads={leads} setSelectedLead={setSelectedLead} selectedLeadId={selectedLead.id} />
       </Box>
       {/* Right Side  */}
       <Box>
-        <RightSide />
+        <RightSide {...selectedLead} />
       </Box>
     </Box>
   );
