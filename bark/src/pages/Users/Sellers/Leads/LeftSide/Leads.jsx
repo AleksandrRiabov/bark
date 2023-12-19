@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 
-import { leads } from "./data";
+import { leads } from "../data";
 
-import LeftSide from "./LeftSide/LeftSide";
+import LeftSide from "./LeftSide";
 
 const LeadsPage = () => {
   return (
@@ -18,7 +18,9 @@ const LeadsPage = () => {
       <LeftSide leads={leads} />
 
       {/* Right Side  */}
-      <Box></Box>
+      <Box>
+        
+      </Box>
     </Box>
   );
 };

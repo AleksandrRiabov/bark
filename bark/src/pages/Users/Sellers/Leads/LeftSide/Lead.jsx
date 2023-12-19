@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Box, Paper, Typography } from "@mui/material";
-import FlexBetween from "../../../../components/FlexBetween";
+import FlexBetween from "../../../../../components/FlexBetween";
 import LocationOn from "@mui/icons-material/LocationOn";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 

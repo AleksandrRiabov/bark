@@ -4,7 +4,7 @@ import LocationOn from "@mui/icons-material/LocationOn";
 import Create from "@mui/icons-material/Create";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import Lead from "../Lead";
+import Lead from "./Lead";
 import FlexBetween from "../../../../../components/FlexBetween";
 
 const LeftSide = ({ leads }) => {

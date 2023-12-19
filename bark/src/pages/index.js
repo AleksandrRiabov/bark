@@ -4,7 +4,7 @@ import SignUp from "./Authentication/Signup";
 
 import MyRequestsPage from "./Users/Buyers/MyRequests";
 
-import LeadsPage from "./Users/Sellers/Leads/Leads";
+import LeadsPage from "./Users/Sellers/Leads/LeftSide/Leads";
 import MyResponsesPage from "./Users/Sellers/MyResponses";
 import SellerProfilePage from "./Users/Sellers/SellerProfilePage";
 import SellerSettings from "./Users/Sellers/SellerSettings";
