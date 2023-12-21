@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Box, Tooltip, Typography } from "@mui/material";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import InfoIcon from "@mui/icons-material/Info";
@@ -12,6 +13,7 @@ const CostBox = ({ cost }) => {
         display: "flex",
         flexDirection: { xs: "column", lg: "row" },
         gap: 2,
+        maxWidth: "720px",
       }}
     >
       <Box
@@ -19,10 +21,10 @@ const CostBox = ({ cost }) => {
         alignItems="center"
         gap={1}
         sx={{
-          borderBottom: { xs: "1px solid #a0a0a0", lg: "none" },
+          borderBottom: { xs: "1px solid #a0a0a0", lg: 0 },
           borderRight: { xs: "none", lg: "1px solid #a0a0a0" },
-          pr: { xs: "none", lg: 2 },
-          pb: { xs: 2, lg: "none" },
+          pr: { xs: 0, lg: 2 },
+          pb: { xs: 2, lg: 0 },
         }}
       >
         <MonetizationOnIcon />
@@ -44,6 +46,10 @@ const CostBox = ({ cost }) => {
       </Box>
     </Box>
   );
+};
+
+CostBox.propTypes = {
+  cost: PropTypes.number.isRequired,
 };
 
 export default CostBox;

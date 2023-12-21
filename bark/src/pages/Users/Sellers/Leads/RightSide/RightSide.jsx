@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import ResponseCountBox from "./ResponseCountBox";
 import FlexBetween from "../../../../../components/FlexBetween";
 import CostBox from "./costBox";
+import QuestionAnswer from "./QuestionAnswer";
+import WestIcon from "@mui/icons-material/West";
 
 const RightSide = ({
   name,
@@ -15,9 +17,26 @@ const RightSide = ({
   email,
   verified,
   responses,
+  details,
+  setDetailsOpened,
 }) => {
   return (
-    <Box p={7}>
+    <Box sx={{ p: { xs: 3, md: 7 } }}>
+      <Box
+        onClick={() => setDetailsOpened(false)}
+        sx={{
+          display: { xs: "flex", md: "none" },
+          gap: 1,
+          pt: 2,
+          mb: 4,
+          cursor: "pointer",
+        }}
+      >
+        <WestIcon sx={{ color: "text.main" }} size="small" />{" "}
+        <Typography variand="subtitle1" color="text.main">
+          Back to List
+        </Typography>
+      </Box>
       <Box>
         <FlexBetween>
           <Typography variant="h6">{name}</Typography>
@@ -52,6 +71,21 @@ const RightSide = ({
         <Box mt={3} mb={3}>
           <CostBox cost={33} />
         </Box>
+        <Box display="flex" gap={2} pt={2}>
+          <Button variant="contained" size="large">
+            Contact {name}
+          </Button>
+          <Button size="large">Not Interested</Button>
+        </Box>
+        <Box pt={4}>
+          <Typography variant="h6">Details</Typography>
+          <Divider />
+          <Box>
+            {details.map(({ question, answer }, index) => (
+              <QuestionAnswer key={index} question={question} answer={answer} />
+            ))}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
@@ -66,6 +100,13 @@ RightSide.propTypes = {
   email: PropTypes.string.isRequired,
   verified: PropTypes.bool,
   responses: PropTypes.number.isRequired,
+  details: PropTypes.arrayOf(
+    PropTypes.shape({
+      question: PropTypes.string.isRequired,
+      answer: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  setDetailsOpened: PropTypes.func.isRequired,
 };
 
 export default RightSide;

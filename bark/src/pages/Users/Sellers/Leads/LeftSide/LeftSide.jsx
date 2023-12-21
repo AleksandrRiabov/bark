@@ -7,7 +7,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import Lead from "./Lead";
 import FlexBetween from "../../../../../components/FlexBetween";
 
-const LeftSide = ({ leads, setSelectedLead, selectedLeadId }) => {
+const LeftSide = ({ leads, handleSelect, selectedLeadId }) => {
   return (
     <Box>
       {/* Header */}
@@ -62,7 +62,7 @@ const LeftSide = ({ leads, setSelectedLead, selectedLeadId }) => {
                 ? { borderLeft: "8px solid orange" }
                 : {}
             }
-            onClick={() => setSelectedLead(lead)}
+            onClick={() => handleSelect(lead)}
           >
             {" "}
             <Lead {...lead} selected={lead.id === selectedLeadId} />
@@ -80,7 +80,7 @@ LeftSide.propTypes = {
       selected: PropTypes.bool,
     })
   ).isRequired,
-  setSelectedLead: PropTypes.func.isRequired,
+  handleSelect: PropTypes.func.isRequired,
   selectedLeadId: PropTypes.number,
 };
 
