@@ -12,7 +12,7 @@ import Footer from "./components/Footer/";
 import CssBaseline from "@mui/material/CssBaseline";
 import {
   Home,
-  MyResponsesPage,
+  Responses,
   MyRequestsPage,
   SellerSettings,
   LeadsPage,
@@ -36,11 +36,7 @@ const App = () => {
           <>
             <Route path="/sellers/home" index element={<SellerProfilePage />} />
             <Route path="/sellers/leads" index element={<LeadsPage />} />
-            <Route
-              path="/sellers/my-responses"
-              index
-              element={<MyResponsesPage />}
-            />
+            <Route path="/sellers/my-responses" index element={<Responses />} />
             <Route
               path="/sellers/settings"
               index
@@ -68,7 +64,7 @@ const App = () => {
 
 const Root = () => {
   return (
-    <Box sx={{background: '#f9f9fa'}}>
+    <Box sx={{ background: "#f9f9fa" }}>
       <CssBaseline />
       <div>
         <Navbar />

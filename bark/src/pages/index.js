@@ -5,7 +5,7 @@ import SignUp from "./Authentication/Signup";
 import MyRequestsPage from "./Users/Buyers/MyRequests";
 
 import LeadsPage from "./Users/Sellers/Leads/Leads";
-import MyResponsesPage from "./Users/Sellers/MyResponses";
+import Responses from "./Users/Sellers/Responses/Responses";
 import SellerProfilePage from "./Users/Sellers/SellerProfilePage";
 import SellerSettings from "./Users/Sellers/SellerSettings";
 
@@ -15,7 +15,7 @@ export {
   SignUp,
   MyRequestsPage,
   LeadsPage,
-MyResponsesPage,
+  Responses,
   SellerProfilePage,
   SellerSettings,
 };
