@@ -19,7 +19,7 @@ const Responses = () => {
       {/* Left side */}
       <Box
         sx={{
-          maxWidth: { md: "400px" },
+          maxWidth: { md: "400px", width: "100%" },
           height: "92vh",
           position: "relative",
           overflow: "scroll",

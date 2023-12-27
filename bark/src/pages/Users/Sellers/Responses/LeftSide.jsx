@@ -18,11 +18,10 @@ const LeftSide = ({ value, setValue, responses }) => {
 
   const hired = responses.filter((response) => response.status === "hired");
   const pending = responses.filter((response) => response.status === "pending");
-
-  console.log(pending.length);
+  console.log(hired.length);
 
   return (
-    <Box sx={{ minWidth: { md: "400px" } }}>
+    <Box sx={{ minWidth: { md: "400px" }, width: '100%'}}>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box
@@ -66,7 +65,13 @@ const LeftSide = ({ value, setValue, responses }) => {
           >
             <FlexBetween>
               <Typography variant="subtitle1">
-                {value == 1 ? "No pending responses" : "No hired responses"}
+                {value == 1
+                  ? pending.length
+                    ? `${pending.length} pending`
+                    : "No pending responses"
+                  : hired.length
+                  ? `${hired.length} hired`
+                  : "No hired responses"}
               </Typography>
               <Box
                 display="flex"
