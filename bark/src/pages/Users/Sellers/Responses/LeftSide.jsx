@@ -10,18 +10,46 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import FlexBetween from "../../../../components/FlexBetween";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import Message from "./Message";
+import Response from "./Response";
+import FiltersSideBar from "../FiltersSideBar";
+import { useState } from "react";
 
-const LeftSide = ({ value, setValue, responses }) => {
+const filterOptions = [
+  { id: "No answer", label: "No answer" },
+  { id: "Started", label: "Started" },
+  // Add more items as needed
+];
+
+const LeftSide = ({
+  value,
+  setValue,
+  responses,
+  handleApplyFilters,
+  handleSelect,
+}) => {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const handleDrawerOpen = () => {
+    setDrawerOpen(true);
+  };
+
   const hired = responses.filter((response) => response.status === "hired");
   const pending = responses.filter((response) => response.status === "pending");
-  console.log(hired.length);
 
   return (
-    <Box sx={{ minWidth: { md: "400px" }, width: '100%'}}>
+    <Box
+      sx={{ minWidth: { md: "400px" }, width: "100%", position: "relative" }}
+    >
+      <FiltersSideBar
+        isDrawerOpen={isDrawerOpen}
+        setDrawerOpen={setDrawerOpen}
+        items={filterOptions}
+        handleApplyFilters={handleApplyFilters}
+      />
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box
@@ -78,28 +106,40 @@ const LeftSide = ({ value, setValue, responses }) => {
                 sx={{ color: "text.main", cursor: "pointer" }}
               >
                 <FilterListIcon />{" "}
-                <Typography variant="subtitle1" pl={1}>
+                <Typography
+                  variant="subtitle1"
+                  pl={1}
+                  onClick={handleDrawerOpen}
+                >
                   Filter
                 </Typography>
               </Box>
             </FlexBetween>
           </Box>
-          <TabPanel value="1">
+          <TabPanel value="1" sx={{ p: 0 }}>
             {!pending.length ? (
               <Box sx={{ display: { xs: "block", md: "none" } }}>
                 <Message value={value} />
               </Box>
             ) : (
-              pending.map((res) => <Box key={res.id}>{res.name}</Box>)
+              pending.map((res) => (
+                <Box key={res.id} onClick={() => handleSelect(res)}>
+                  {<Response {...res} />}
+                </Box>
+              ))
             )}
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel value="2" sx={{ p: 0 }}>
             {!hired.length ? (
               <Box sx={{ display: { xs: "block", md: "none" } }}>
                 <Message value={value} />
               </Box>
             ) : (
-              hired.map((res) => <Box key={res.id}>{res.name}</Box>)
+              hired.map((res) => (
+                <Box key={res.id} onClick={() => handleSelect(res)}>
+                  {<Response {...res} />}
+                </Box>
+              ))
             )}
           </TabPanel>
         </TabContext>
@@ -119,6 +159,6 @@ LeftSide.propTypes = {
       // Add more prop validations as needed
     })
   ).isRequired,
+  handleApplyFilters: PropTypes.func.isRequired, // Add this prop validation
 };
-
 export default LeftSide;

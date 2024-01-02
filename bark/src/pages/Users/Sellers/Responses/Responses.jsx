@@ -1,17 +1,32 @@
 import { Box } from "@mui/material";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
-import { useState } from "react";
-import { responses } from "./data";
+import { useEffect, useState } from "react";
+import { responses as data } from "./data";
 
 const Responses = () => {
-  const [selectedResponse, setSelectedResponse] = useState(responses[0]);
+  const [selectedResponse, setSelectedResponse] = useState({});
   const [detailsOpened, setDetailsOpened] = useState(false);
   const [value, setValue] = useState("1");
+  const [responses, setResponses] = useState([]);
+  const [filteredResponses, setFilteredResponses] = useState(responses);
 
-  const handleSelect = (lead) => {
-    setSelectedResponse(lead);
+  useEffect(() => {
+    setResponses(data);
+    setFilteredResponses(data);
+  }, []);
+
+  const handleSelect = (response) => {
+    setSelectedResponse(response);
     setDetailsOpened(true);
+    console.log("first");
+  };
+
+  const handleApplyFilters = (selected) => {
+    const filtered = responses.filter((res) => selected.includes(res.answered));
+    if (selected.length) {
+      setFilteredResponses(filtered);
+    } else setFilteredResponses(responses);
   };
 
   return (
@@ -28,12 +43,13 @@ const Responses = () => {
         }}
       >
         <LeftSide
-          responses={responses}
+          responses={filteredResponses}
           handleSelect={handleSelect}
           selectResponseId={selectedResponse.id}
           ssetDetailsOpened={setDetailsOpened}
           value={value}
           setValue={setValue}
+          handleApplyFilters={handleApplyFilters}
         />
       </Box>
 
